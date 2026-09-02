@@ -4,9 +4,14 @@ import { defineConfig } from 'vite'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-  test : {
+  test: {
     globals: true,
     environment: 'jsdom',
     setupFiles: './tests/setup.js',
+  },
+  css: {
+    modules: {
+      localsConvention: 'camelCaseOnly',
+    },
   },
 })
