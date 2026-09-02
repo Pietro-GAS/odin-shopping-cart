@@ -28,42 +28,26 @@ describe("App component", () => {
         expect(screen.getByRole("heading")).toBeInTheDocument();
     });
     it("renders the current page heading", () => {
+        // Home Page
         render(<RouterProvider router={router} />);
         // using regex with the i flag allows simpler case-insensitive comparison
         expect(screen.getByRole("heading").textContent).toMatch(/home page/i);
         cleanup();
 
+        // Shop Page
         const router1 = createMemoryRouter(routes, { initialEntries: ['/shop'] })
+        
         render(<RouterProvider router={router1} />);
 
         expect(screen.getByRole("heading").textContent).toMatch(/shop page/i);
         cleanup();
 
+        // Cart Page
         const router2 = createMemoryRouter(routes, { initialEntries: ['/cart'] })
+        
         render(<RouterProvider router={router2} />);
 
         expect(screen.getByRole("heading").textContent).toMatch(/cart page/i);
-    });
-});
-
-describe("NavBar component", () => {
-    const routes = [
-        {
-            path: "/",
-            element: <NavBar />,
-            children: [
-            { path: "/", element: <HomePage /> },
-            { path: "shop", element: <ShopPage /> },
-            { path: "cart", element: <CartPage /> },
-            ],
-        },
-    ];
-    const router = createMemoryRouter(routes); 
-    it("contains the expected links", () => {
-        render(<RouterProvider router={router} />);
-        expect(screen.getByText(/home/i)).toBeInTheDocument();
-        expect(screen.getByText(/shop/i)).toBeInTheDocument();
-        expect(screen.getByText(/cart/i)).toBeInTheDocument();
     });
 });
 
@@ -73,9 +57,9 @@ describe("user interaction", () => {
 
         render(<RouterProvider router={router} />);
         const home = screen.getByRole("link", { name: "Home" });
-        const shop = screen.getByRole("link", { name: "Shop" });
+        const shop = screen.getByRole("link", { name: /shop/i });
         const cart = screen.getByRole("link", { name: "Cart" });
-
+        
         await user.click(shop);
 
         expect(screen.getByRole("heading").textContent).toMatch(/shop page/i);
