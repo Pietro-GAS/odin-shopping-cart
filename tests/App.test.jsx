@@ -31,7 +31,7 @@ describe("App component", () => {
         // Home Page
         render(<RouterProvider router={router} />);
         // using regex with the i flag allows simpler case-insensitive comparison
-        expect(screen.getByRole("heading").textContent).toMatch(/home page/i);
+        expect(screen.getByRole("heading", { level: 1 }).textContent).toMatch(/home page/i);
         cleanup();
 
         // Shop Page
@@ -39,7 +39,7 @@ describe("App component", () => {
         
         render(<RouterProvider router={router1} />);
 
-        expect(screen.getByRole("heading").textContent).toMatch(/shop page/i);
+        expect(screen.getByRole("heading", { level: 1 }).textContent).toMatch(/shop page/i);
         cleanup();
 
         // Cart Page
@@ -47,7 +47,7 @@ describe("App component", () => {
         
         render(<RouterProvider router={router2} />);
 
-        expect(screen.getByRole("heading").textContent).toMatch(/cart page/i);
+        expect(screen.getByRole("heading", { level: 1 }).textContent).toMatch(/cart page/i);
     });
 });
 
@@ -62,15 +62,15 @@ describe("user interaction", () => {
         
         await user.click(shop);
 
-        expect(screen.getByRole("heading").textContent).toMatch(/shop page/i);
+        expect(screen.getByRole("heading", { level: 1 }).textContent).toMatch(/shop page/i);
 
         await user.click(cart);
 
-        expect(screen.getByRole("heading").textContent).toMatch(/cart page/i);
+        expect(screen.getByRole("heading", { level: 1 }).textContent).toMatch(/cart page/i);
 
         await user.click(home);
 
-        expect(screen.getByRole("heading").textContent).toMatch(/home page/i);
+        expect(screen.getByRole("heading", { level: 1 }).textContent).toMatch(/home page/i);
 
     });
 });
