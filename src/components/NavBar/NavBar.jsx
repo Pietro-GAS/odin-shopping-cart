@@ -1,8 +1,13 @@
-import Button from "../Button/Button.jsx";
 import { NavLink } from "react-router";
 import styles from "./NavBar.module.css";
 
-export default function NavBar() {
+export default function NavBar({ cart }) {
+    const emptyCart = cart.length === 0 ? true : false;  
+    const cartSize = cart.reduce(
+        (accumulator, currentValue) => accumulator + currentValue.count,
+        0,
+    );
+    const cartHeading = emptyCart ? `Cart` : `Cart (${cartSize})`;
     return(
         <nav className={styles.navbar}>
             <NavLink to="/" className={
@@ -16,7 +21,7 @@ export default function NavBar() {
             <NavLink to="cart" className={
                 ({ isActive }) => isActive ? `${styles.link} ${styles.active}`: styles.link
                 }
-            >Cart</NavLink>
+            >{ cartHeading }</NavLink>
         </nav>
     );
 }

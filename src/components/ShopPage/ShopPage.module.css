@@ -1,6 +1,13 @@
+.shopPage{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 20px;
+}
+
 .container {
     display: grid;
-    grid-template: repeat(4, 1fr) / repeat(5, 1fr);
+    grid-template: repeat(5, 1fr) / repeat(4, 1fr);
     /*display: flex;
     flex-direction: row;
     flex-wrap: wrap;*/
@@ -11,8 +18,25 @@
 .card {
     background-color: rgba(170, 59, 255, 0.1);
     border: solid 1px rgba(170, 59, 255, 0.5);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 5px;
 }
 
-h3 {
+.cardTitle {
     margin: 0;
+    font-size: 0.75rem;
+    text-wrap-mode: nowrap;
+    overflow: clip;
+    text-overflow: ellipsis;
+    min-width: 100%;
+    width: 200px;
+}
+
+.cardImg {
+    height: 100px;
+    width:100%;
+    object-fit: contain;
 }

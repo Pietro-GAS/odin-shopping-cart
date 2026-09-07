@@ -3,7 +3,6 @@ import { cleanup, render, screen } from "@testing-library/react";
 import { userEvent } from "@testing-library/user-event";
 import { createMemoryRouter, RouterProvider } from "react-router";
 import App from "../src/App.jsx";
-import NavBar from "../src/components/NavBar/NavBar.jsx";
 import HomePage from "../src/components/HomePage/HomePage.jsx";
 import ShopPage from "../src/components/ShopPage/ShopPage.jsx";
 import CartPage from "../src/components/CartPage/CartPage.jsx";
