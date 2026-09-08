@@ -38,11 +38,11 @@ function ShopButtons({ product }) {
     return(
         <div className={styles.container}>
             <div className={styles.itemButtons}>
-                <button onClick={decrement}>-</button>
+                <button className={styles.btn} onClick={decrement}>-</button>
                 <input className={styles.itemNum} value={selected} onChange={handleChange}></input>
-                <button onClick={increment}>+</button>
+                <button className={styles.btn} onClick={increment}>+</button>
             </div>
-            <button onClick={addToCart}>Add to cart</button>
+            <button className={styles.addBtn} onClick={addToCart}>Add to cart</button>
         </div>
     );
 }
