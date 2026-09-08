@@ -6,7 +6,7 @@ function ShopPage() {
     return(
         <div className={styles.shopPage}>
             <h1>Shop Page</h1>
-            <CardContainer></CardContainer>
+            <CardContainer />
         </div>
     )
 }
