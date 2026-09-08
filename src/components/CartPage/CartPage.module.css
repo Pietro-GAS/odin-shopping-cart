@@ -4,3 +4,23 @@
     justify-content: space-between;
     gap: 20px;
 }
+
+.cardList{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.card {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 20px;
+    align-items: center;
+}
+
+.cardImg {
+    height: 100px;
+    object-fit: contain;
+}

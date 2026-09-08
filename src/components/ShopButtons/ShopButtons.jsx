@@ -30,7 +30,7 @@ function ShopButtons({ product }) {
             newCart.find(item => item.title === product.title).count += selected;
             setCart(newCart);
         } else {
-            const newCart = [...cart, {title: product.title, count: selected}];
+            const newCart = [...cart, {id: product.id, title: product.title, count: selected, image: product.image}];
             setCart(newCart);
         }
     }

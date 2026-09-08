@@ -11,9 +11,25 @@ function CartPage() {
 }
 
 function CartContainer() {
-    
+const { cart, setCart } = useCart();
+console.log(cart);
+//const cartList = cart.map(item => <li key={item.id}>{item.count}x {item.title}</li>)
+const cartList = cart.map(item => <CartCard key={item.id} item={item} />);
+console.log(cartList);
     return(
-        <p>WORK IN PROGRESS...</p>
+        <ul className={styles.cardList}>
+            {cartList}
+        </ul>
+    );
+}
+
+function CartCard( {item} ) {
+    return(
+        <li className={styles.card}>
+            <img className={styles.cardImg} src={item.image} />
+            <div>{item.title}</div>
+            <div>x{item.count}</div>
+        </li>
     );
 }
 
