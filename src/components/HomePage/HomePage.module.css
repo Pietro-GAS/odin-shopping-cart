@@ -1,0 +1,11 @@
+.homePage {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.icon {
+    background-color: rgba(170, 59, 255, 0.1);
+}

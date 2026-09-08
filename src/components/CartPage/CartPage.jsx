@@ -13,10 +13,11 @@ function CartPage() {
 
 function CartContainer() {
     const { cart, setCart } = useCart();
-    console.log(cart);
-    //const cartList = cart.map(item => <li key={item.id}>{item.count}x {item.title}</li>)
     const cartList = cart.map(item => <CartCard key={item.id} item={item} />);
     console.log(cartList);
+    
+    if (cart.length === 0) return <div className={styles.emptyCart}>Your cart is empty.</div>
+    
     return(
         <ul className={styles.cardList}>
             {cartList}
